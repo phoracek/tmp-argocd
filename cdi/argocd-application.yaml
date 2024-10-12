@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: cdi
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   destination:
     namespace: cdi
@@ -13,8 +15,10 @@ spec:
     repoURL: https://github.com/phoracek/tmp-argocd.git
     targetRevision: HEAD
   ignoreDifferences:
-  - group: cdi.kubevirt.io/v1beta1
-    kind: CDI
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: cdis.cdi.kubevirt.io
     jsonPointers:
-    # CDI changes this
-    - /spec/customizeComponents
+    # Can't make it sync without this
+    - /status
+    - /spec

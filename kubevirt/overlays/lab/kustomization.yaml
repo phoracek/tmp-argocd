@@ -5,3 +5,4 @@ bases:
 patchesStrategicMerge:
 - argocd-wave.yaml
 - single-replica.yaml
+- remove-empty-featuregates.yaml

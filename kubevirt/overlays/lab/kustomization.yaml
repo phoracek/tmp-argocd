@@ -1,8 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-bases:
+resources:
 - ../../base
-patchesStrategicMerge:
-- argocd-wave.yaml
-- single-replica.yaml
-- remove-empty-featuregates.yaml
+patches:
+- path: argocd-wave.yaml
+- path: single-replica.yaml
+- path: remove-empty-featuregates.yaml

@@ -12,3 +12,9 @@ spec:
     path: cdi/overlays/lab
     repoURL: https://github.com/phoracek/tmp-argocd.git
     targetRevision: HEAD
+  ignoreDifferences:
+  - group: cdi.kubevirt.io/v1beta1
+    kind: CDI
+    jsonPointers:
+    # CDI changes this
+    - /spec/customizeComponents

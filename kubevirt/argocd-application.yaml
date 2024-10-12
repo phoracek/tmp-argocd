@@ -12,3 +12,9 @@ spec:
     path: kubevirt/overlays/lab
     repoURL: https://github.com/phoracek/tmp-argocd.git
     targetRevision: HEAD
+  ignoreDifferences:
+  - group: kubevirt.io/v1
+    kind: KubeVirt
+    jsonPointers:
+    # KubeVirt updates this spec
+    - /spec/configuration/developerConfiguration

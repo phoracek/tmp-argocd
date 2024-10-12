@@ -5,4 +5,3 @@ resources:
 patches:
 - path: argocd-wave.yaml
 - path: single-replica.yaml
-- path: remove-empty-featuregates.yaml

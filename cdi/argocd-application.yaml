@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cdi
+  namespace: argocd
+spec:
+  destination:
+    namespace: cdi
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: cdi/overlays/lab
+    repoURL: https://github.com/phoracek/tmp-argocd.git
+    targetRevision: HEAD

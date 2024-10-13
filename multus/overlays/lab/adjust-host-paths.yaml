@@ -6,6 +6,13 @@ metadata:
 spec:
   template:
     spec:
+      containers:
+      - name: kube-multus
+        args:
+        - "--multus-conf-file=auto"
+        - "--multus-autoconfig-dir=/host/etc/cni/net.d"
+        - "--cni-conf-dir=/host/etc/cni/net.d"
+        - "--multus-kubeconfig-file-host=/var/lib/rancher/k3s/agent/etc/cni/net.d/multus.d/multus.kubeconfig"
       volumes:
         - name: cni
           hostPath:
